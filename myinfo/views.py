@@ -11,7 +11,6 @@ from myinfo.responses import GenericResponse, GenericErrorResponse, PersonRespon
 from myinfo.requests import GetPersonData
 
 from libs.validation.decorators import validate_get
-# Create your views here.
 
 logger = logging.getLogger(__name__)
 
