@@ -72,9 +72,12 @@ Comments in the code give more color on the decision process.
 
 ## Next steps
 
+Immediate next step, that i think are out of scope for such a test:
+
 1. Dockerize the app (unnecessary in its current state. Starts to pay off once we have a Storage Backend)
-2. Push the the communication with MyInfo to a queue (i've had pretty inconsitent response times, including a few timeouts)
-3. Add more mocks to the tests (i havent' done it beyond a few examples - it's very time consuming)
-4. CI/CD, including automatic code formating, security scans, unit tests, static code quality analysis
-5. Configuration management, to have different environement. Would be implemented by environment variables.
+2. Selenium test cases (seems like the ideal way to test the integration with MyInfo)
+3. Push the the communication with MyInfo to a queue (i've had pretty inconsitent response times, including a few timeouts)
+4. Add more mocks to the tests (i havent' done it beyond a few examples - it's very time consuming)
+5. CI/CD, including automatic code formating, security scans, unit tests, static code quality analysis
+6. Configuration management, to have different environement. Would be implemented by environment variables.
 

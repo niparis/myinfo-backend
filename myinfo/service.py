@@ -26,9 +26,10 @@ def authorize_url(state: str="blahblah") -> str:
     
 
 def get_person_data(code: str) -> Person:
-    # Getting access token with code
-    client = MyInfoClient()
+    return _get_person_data(client=MyInfoClient(), code=code)
 
+def _get_person_data(client: MyInfoClient, code: str) -> Person:
+    # Getting access token with code
     try:
         resp = client.get_access_token(code)
     except ConnectionError as ex:
@@ -48,6 +49,10 @@ def get_person_data(code: str) -> Person:
     except ConnectionError as ex:
         logger.exception('Connection error when calling get_person')
         raise ex
+
+    import json
+    with open('client_get_person_response.json', 'w') as fin:
+        fin.write(json.dumps(resp))
 
     decrypted = get_decrypted_person_data(resp)
     logger.info('person data decrypted')
