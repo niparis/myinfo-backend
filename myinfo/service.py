@@ -25,10 +25,8 @@ def authorize_url(state: str="blahblah") -> str:
     return client.get_authorise_url(state=state)   
     
 
-def get_person_data(code: str) -> Person:
-    return _get_person_data(client=MyInfoClient(), code=code)
-
-def _get_person_data(client: MyInfoClient, code: str) -> Person:
+def get_person_data(client: MyInfoClient, code: str) -> Person:
+    client=MyInfoClient()
     # Getting access token with code
     try:
         resp = client.get_access_token(code)
@@ -50,10 +48,6 @@ def _get_person_data(client: MyInfoClient, code: str) -> Person:
         logger.exception('Connection error when calling get_person')
         raise ex
 
-    import json
-    with open('client_get_person_response.json', 'w') as fin:
-        fin.write(json.dumps(resp))
-
     decrypted = get_decrypted_person_data(resp)
     logger.info('person data decrypted')
 
@@ -63,6 +57,5 @@ def _get_person_data(client: MyInfoClient, code: str) -> Person:
         logger.exception('We were not able to decode the person. Going to log the raw object for easier debugging')
         logger.error(decrypted)
         raise ValidationError('unable to decode the person')
-    
 
     return person
