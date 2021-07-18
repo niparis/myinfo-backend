@@ -27,6 +27,10 @@ python manage.py runserver 3001
 
 ### How to test
 
+Some basic test cases are included.
+
+To run: 
+
 activate virtual environment
 
 then
@@ -35,7 +39,7 @@ then
 
 ## What can be done
 
-First, run the Django API server (cf above)
+First, run the Django API server (cf above, setup A or B)
 
 ### 1. Retrieve the MyInfo authorization URL
     
