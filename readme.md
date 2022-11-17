@@ -61,14 +61,16 @@ First, run the Django API server (cf above, setup A or B)
 # Design Choices
 
 1. Everything is validated
-    A. Each request and each response have a schema, 
-    B. Business entities helps validate data created in the the services, or coming from third parties
+- A. Each request and each response have a schema, 
+- B. Business entities helps validate data created in the the services, or coming from third parties
 
 2. Strict separation between:
-    A. the HTTP controller (or view in Django) that purely takes care of the request/response validation, and of
-    B. the service layer, responsible for the business logic. The HTTP and data layers are abstracted from it so that it can focus on the hardest part. It includes business entities         
-    C. the data layer **not implemented as unnecessary** - would be strictly separated from the service layer and focused purely on the interation with the datastore.
+- A. the HTTP controller (or view in Django) that purely takes care of the request/response validation, and of
+- B. the service layer, responsible for the business logic. The HTTP and data layers are abstracted from it so that it can focus on the hardest part. It includes business entities         
+- C. the data layer **not implemented as unnecessary** - would be strictly separated from the service layer and focused purely on the interation with the datastore.
+
 3. Code that could be used in other services is offloaded to libraries (`libs` folder on top)
+
 4. Central management of exceptions implemented as a middleware. Ensures consistency in the API's error responses.
 
 
